@@ -5,12 +5,13 @@ use Illuminate\Http\Request;
 use App\Models\Account;
 use App\Models\User;
 use App\Models\Transfer;
-use Illuminate\Support\Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class AccountController extends Controller
 {
     public function index(){
-        $accounts=Accounts::where('user_id', Auth::id())->get();
+        $accounts=Account::where('user_id', Auth::id())->get();
         return view('pages.home', compact('accounts'));
     }
 
