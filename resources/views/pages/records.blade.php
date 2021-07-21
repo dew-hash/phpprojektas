@@ -27,10 +27,10 @@
           </thead>
           <tbody>
             <tr>
-              @foreach($transfers as $transfer)
+              @foreach($tranfersWithNames as $transfer)
+                <td>{{$transfer->from_name}}</td>
                 <td>{{$transfer->from}}</td>
-                <td>{{$transfer->from}}</td>
-                <td>{{$transfer->to}}</td>
+                <td>{{$transfer->to_name}}</td>
                 <td>{{$transfer->to}}</td>
                 <td>{{$transfer->amount}}</td>
                 <td><a href="/cancel/{{$transfer->id}}">Atšaukti</a></td>
@@ -42,7 +42,7 @@
     </div>
     <!-- Pager -->
     <div>
-      {{$transfers->links}}
+      {{$tranfersWithNames->links}}
     </div>
   </div>
 </div>
