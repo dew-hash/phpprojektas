@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\TransferController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ Route::get('/{user}', [AccountController::class, 'index']);
 Route::get('/transfer', [AccountController::class, 'transfer']);
 Route::get('/transfer-my-account', [AccountController::class, 'transferToMyAccount']);
 Route::post('/save-transfer', [AccountController::class, 'saveTransfer']);
+Route::post('/{account}/save-transfer', [TransferController::class, 'saveTransfer']);
 Route::get('/{account}', [AccountController::class, 'showAccount']);
 Route::get('/cancel/{transfer}', [AccountController::class, 'cancelTransfer']);
 

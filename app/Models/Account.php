@@ -10,5 +10,13 @@ class Account extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['balance', 'label', 'iban', 'user_id', 'is_main'];
+    protected $fillable = ['balance', 'label', 'iban', 'user_id', 'currency', 'is_main'];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function tranfers(){
+        return $this->hasMany(Transfer::class)
+    }
 }

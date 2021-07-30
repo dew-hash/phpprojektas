@@ -17,8 +17,8 @@ class CreateAccountsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->decimal('balance', 5, 2);
-            $table->integer('user_id');
-            $table->string('iban', 22);
+            $table->foreignId('user_id')->constrained('users');
+            $table->string('iban', 22)->unique();;
             $table->string('label', 40);
             $table->boolean('is_main');
         });

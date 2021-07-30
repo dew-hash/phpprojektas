@@ -17,10 +17,13 @@ class CreateTransfersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->decimal('amount', 5, 2);
-            $table->string('to', 22);
-            $table->string('from', 22);
-            $table->string('purpose', 500);
+            //$table->foreignId('to')->constrained('accounts');
+            //$table->foreignId('from')->constrained('accounts');
+            $table->string('toiban', 22);
+            $table->string('fromiban', 22);
+            $table->string('purpose', 500)->nullable();
             $table->dateTime('time');
+            $table->string('currency', 3);
         });
     }
 
